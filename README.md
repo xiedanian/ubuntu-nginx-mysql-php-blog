@@ -1,7 +1,8 @@
 
 # ubuntu-nginx-mysql-php-blog  
-### Directories  
+### Directories tree
 
+```
 ├── Dockerfile
 ├── README.md
 ├── etc
@@ -26,6 +27,7 @@
     │   └── redis
     └── www
         └── web
+```
         
 
 #### Step1: Build 镜像
