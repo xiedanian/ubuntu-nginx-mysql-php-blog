@@ -1,0 +1,21 @@
+server {
+    listen 80 default_server;
+    listen [::]:80 default_server ipv6only=on;
+
+    root /var/www/web;
+    index index.html index.htm;
+
+    # Make site accessible from http://localhost/
+    server_name localhost;
+
+    # PHP
+    location ~ \.php$ {
+        try_files $uri =404;
+        fastcgi_param  HTTPS on;
+        fastcgi_pass   unix:/var/run/php5-fpm.sock;
+        fastcgi_index  index.php;
+        fastcgi_param  SCRIPT_FILENAME /var/www/web/api/index.php;
+        fastcgi_intercept_errors on;
+        include fastcgi_params;
+    }
+}

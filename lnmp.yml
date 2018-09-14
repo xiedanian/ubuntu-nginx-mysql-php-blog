@@ -1,0 +1,42 @@
+version: '3'
+services:
+    web:
+        image: visk_blog
+        build:
+            context: ./
+            dockerfile: Dockerfile
+        container_name: "visk_blog"
+        hostname: "visk_blog"
+        restart: always
+        ports:
+            - "80:80"
+            - "443:443"
+        volumes:
+            #- "./var/www/web:/var/www/web"
+            - "./etc/nginx/:/etc/nginx/conf.d"
+            - "./etc/php/php.ini:/etc/php5/fpm/php.ini"
+            - "./var/log/redis:/var/log/redis"
+            - "./var/log/nginx:/var/log/nginx"
+        depends_on:
+            - "mysql"
+        links:
+          - "mysql"
+    mysql:
+        image: mysql:5.7
+        container_name: "visk_blog_mysql"
+        restart: always
+        ports:
+              - "3308:3306"
+        environment:
+          MYSQL_ROOT_PASSWORD: 123456
+        volumes:
+           - "./files/mysql_init.sh:/tmp/mysql_init.sh"
+           - "./files/vk_blog.sql:/tmp/vk_blog.sql"
+           - "./etc/mysql/my.cnf:/etc/mysql/mysql.conf.d/mysqld.cnf"
+           - "./var/db:/var/lib/mysql"
+           - "./var/log:/var/log/mysql"
+        #command: "sh /tmp/mysql_init.sh"
+        #extra_hosts:
+        #    - "test.com:127.0.0.1"
+
+
