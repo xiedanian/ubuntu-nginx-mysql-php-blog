@@ -26,6 +26,7 @@
     │   └── redis
     └── www
         └── web
+        
 
 #### Step1: Build 镜像
 `docker-compose -f lnmp.yml up --force-recreate -d`
