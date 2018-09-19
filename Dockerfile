@@ -14,7 +14,7 @@ RUN apt-get -y --force-yes install \
             g++ \
             make \
             nginx \
-            mysql-client \
+            openssh-server \
             redis-server \
             php5-cli \
             php5-fpm \
