@@ -33,7 +33,7 @@
     2.docker-compose version 1.22.0
 
 #### Step1: Build image
-`docker-compose -f lnmp.yml up --force-recreate -d`
+`docker-compose up --force-recreate -d`
 ```  
 $ docker images                                                                                                                                                                                                                       
 REPOSITORY          TAG                 IMAGE ID            CREATED              SIZE
@@ -44,7 +44,7 @@ mysql               5.7                 563a026a1511        12 days ago         
 $ docker ps -a                                                                                                                                                                                                                        
 CONTAINER ID        IMAGE               COMMAND                  CREATED              STATUS              PORTS                                      NAMES
 6dda740569bc        visk_blog           "supervisord --nodae…"   About a minute ago   Up About a minute   0.0.0.0:80->80/tcp, 0.0.0.0:443->443/tcp   visk_blog
-c3231298db29        mysql:5.7           "docker-entrypoint.s…"   About a minute ago   Up About a minute   33060/tcp, 0.0.0.0:3308->3306/tcp          visk_blog_mysql                       
+c3231298db29        mysql:5.7           "docker-entrypoint.s…"   About a minute ago   Up About a minute   0.0.0.0:3306->3306/tcp                     visk_blog_mysql                       
 ```
 
 #### Step2: Init blog data
