@@ -62,5 +62,5 @@ MySQL Community Server 5.7.20 is running.
 ```  
 #### Step3: Set localhost
 ``` 
-127.0.0.1 www.danian.com
+127.0.0.1 www.visk.com.cn
 ```
